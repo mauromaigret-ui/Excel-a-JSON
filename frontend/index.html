@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Censo 2024 · Excel a JSON (Local)</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-badge">C24</div>
+          <div>
+            <div class="brand-title">Censo 2024</div>
+            <div class="brand-sub">Excel → JSON local</div>
+          </div>
+        </div>
+        <nav class="steps">
+          <div class="step active">1. Importar</div>
+          <div class="step">2. Hojas</div>
+          <div class="step">3. Mapeo</div>
+          <div class="step">4. Transformar</div>
+          <div class="step">5. Vista JSON</div>
+          <div class="step">6. Auditoría</div>
+          <div class="step">7. Exportar</div>
+        </nav>
+        <div class="sidebar-footer">
+          <div class="tiny">Modo local · sin nube</div>
+          <div class="tiny">Puerto: 8000</div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="topbar">
+          <div>
+            <div class="title">Conversión local de Excel a JSON</div>
+            <div class="subtitle">Consolidado por hoja, auditoría por tabla.</div>
+          </div>
+          <div class="status" id="status">Listo para importar</div>
+        </header>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>1) Importar Excel</h2>
+          </div>
+          <div class="panel-body">
+            <div class="dropzone" id="dropzone">
+              <input type="file" id="fileInput" accept=".xlsx,.xls" />
+              <div>
+                <div class="drop-title">Arrastra tu Excel aquí</div>
+                <div class="drop-sub">o selecciona un archivo</div>
+              </div>
+            </div>
+            <div class="file-meta" id="fileMeta"></div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>2) Hojas y bases del censo</h2>
+          </div>
+          <div class="panel-body" id="sheetList">
+            <div class="empty">Carga un Excel para ver las hojas.</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h2>3) Vista JSON y auditoría</h2>
+            <div class="panel-actions">
+              <button class="btn" id="previewBtn">Vista previa JSON</button>
+              <button class="btn secondary" id="auditBtn">Auditar</button>
+              <label class="toggle">
+                <input type="checkbox" id="includeAudit" checked />
+                Incluir auditoría en exportación
+              </label>
+              <button class="btn primary" id="exportBtn">Exportar JSON</button>
+            </div>
+          </div>
+          <div class="panel-body split">
+            <div>
+              <div class="section-title">Preview JSON consolidado</div>
+              <pre class="code" id="jsonPreview">Aún sin datos.</pre>
+            </div>
+            <div>
+              <div class="section-title">Auditoría por hoja</div>
+              <div class="audit" id="auditResults">Aún sin auditoría.</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

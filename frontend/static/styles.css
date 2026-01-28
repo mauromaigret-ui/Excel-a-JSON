@@ -1,0 +1,360 @@
+:root {
+  --bg: #f4f1ea;
+  --bg-accent: #e9f4f1;
+  --ink: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --primary: #0e9f8a;
+  --accent: #f4a261;
+  --danger: #dc2626;
+  --card: #ffffff;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Georgia", "Palatino", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top left, #fff4e6 0%, var(--bg) 35%, var(--bg-accent) 100%);
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  display: grid;
+  place-items: center;
+  color: #0f172a;
+  font-weight: 700;
+  font-family: "Avenir Next", "Futura", sans-serif;
+}
+
+.brand-title {
+  font-family: "Avenir Next", "Futura", sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brand-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.step {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(148, 163, 184, 0.1);
+  color: #cbd5f5;
+  font-size: 0.9rem;
+}
+
+.step.active {
+  background: rgba(14, 159, 138, 0.2);
+  color: #f8fafc;
+  border: 1px solid rgba(14, 159, 138, 0.4);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.content {
+  padding: 28px 36px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: "Avenir Next", "Futura", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.status {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  color: #9a3412;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.panel-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-family: "Avenir Next", "Futura", sans-serif;
+  font-size: 1.1rem;
+}
+
+.panel-body {
+  padding: 20px 22px;
+}
+
+.dropzone {
+  border: 2px dashed #94a3b8;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background: #f8fafc;
+}
+
+.dropzone input {
+  padding: 12px;
+}
+
+.drop-title {
+  font-weight: 700;
+  font-family: "Avenir Next", "Futura", sans-serif;
+}
+
+.drop-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.file-meta {
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.sheet-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #ffffff;
+}
+
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.sheet-title {
+  font-family: "Avenir Next", "Futura", sans-serif;
+  font-weight: 700;
+}
+
+.sheet-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.mapping-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.mapping-table th,
+.mapping-table td {
+  text-align: left;
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.mapping-table input,
+.mapping-table select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.mapping-table input[type="checkbox"] {
+  width: auto;
+}
+
+.btn {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+  font-family: "Avenir Next", "Futura", sans-serif;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+  border-color: transparent;
+}
+
+.btn.secondary {
+  background: #0f172a;
+  color: #e2e8f0;
+  border-color: transparent;
+}
+
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.section-title {
+  font-family: "Avenir Next", "Futura", sans-serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.code {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 14px;
+  border-radius: 12px;
+  height: 320px;
+  overflow: auto;
+  font-size: 0.8rem;
+}
+
+.audit {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  padding: 14px;
+  border-radius: 12px;
+  min-height: 320px;
+}
+
+.audit-item {
+  padding: 8px 0;
+  border-bottom: 1px dashed #fdba74;
+}
+
+.audit-item:last-child {
+  border-bottom: none;
+}
+
+.audit-status {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.audit-status.ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.audit-status.warn {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.audit-status.err {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.tiny {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 980px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .steps {
+    display: none;
+  }
+  .split {
+    grid-template-columns: 1fr;
+  }
+  .content {
+    padding: 20px;
+  }
+}
