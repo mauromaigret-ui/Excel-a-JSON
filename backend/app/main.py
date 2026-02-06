@@ -7,13 +7,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 
-from app.api.routes_import import router as import_router
-from app.api.routes_map import router as map_router
-from app.api.routes_transform import router as transform_router
-from app.api.routes_audit import router as audit_router
-from app.api.routes_export import router as export_router
+from app.api.routes_layers import router as layers_router
+from app.api.routes_upload import router as upload_router
+from app.api.routes_variables import router as variables_router
+from app.api.routes_report import router as report_router
 
-app = FastAPI(title="Censo 2024 Excel → JSON (local)")
+app = FastAPI(title="Censo 2024 Localidades Tablas (local)")
 
 app.add_middleware(
     CORSMiddleware,
@@ -23,11 +22,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(import_router)
-app.include_router(map_router)
-app.include_router(transform_router)
-app.include_router(audit_router)
-app.include_router(export_router)
+app.include_router(layers_router)
+app.include_router(upload_router)
+app.include_router(variables_router)
+app.include_router(report_router)
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
 FRONTEND_DIR = ROOT_DIR / "frontend"
@@ -39,5 +37,4 @@ if STATIC_DIR.exists():
 
 @app.get("/", include_in_schema=False)
 def index() -> FileResponse:
-    index_path = FRONTEND_DIR / "index.html"
-    return FileResponse(index_path)
+    return FileResponse(FRONTEND_DIR / "index.html")
